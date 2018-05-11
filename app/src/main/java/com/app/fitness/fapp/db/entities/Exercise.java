@@ -7,7 +7,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class Exercise {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
     @ColumnInfo(name = "name")
@@ -18,6 +18,9 @@ public class Exercise {
 
     @ColumnInfo(name = "number_of_repetitions")
     private String numberOfRepetitions;
+
+    @ColumnInfo(name = "weight")
+    private String weight;
 
     public int getId() {
         return id;
@@ -49,5 +52,13 @@ public class Exercise {
 
     public void setNumberOfRepetitions(String numberOfRepetitions) {
         this.numberOfRepetitions = numberOfRepetitions;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 }
