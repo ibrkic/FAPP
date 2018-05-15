@@ -1,6 +1,7 @@
 package com.app.fitness.fapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -12,12 +13,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.fitness.fapp.db.DatabaseHolder;
+import com.app.fitness.fapp.db.entities.Exercise;
 import com.app.fitness.fapp.views.WorkoutLogFragment;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +37,7 @@ public class MainActivity extends FragmentActivity {
     ImageView toolbarSwipeRight;
     private PagerAdapter mPagerAdapter;
     private Calendar mCalendar;
+    private DatabaseHolder exerciseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        exerciseDatabase = DatabaseHolder.getInstance(this);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
         setListeners();
@@ -94,5 +97,14 @@ public class MainActivity extends FragmentActivity {
         public int getCount() {
             return NUM_PAGES;
         }
+    }
+
+    public DatabaseHolder getExerciseDatabase() {
+        return exerciseDatabase;
+    }
+
+    public void setResult(Exercise exercise, int flag){
+        /*setResult(flag, new Intent().putExtra("exercise", exercise));
+        finish();*/
     }
 }

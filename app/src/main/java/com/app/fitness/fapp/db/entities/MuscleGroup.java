@@ -3,12 +3,9 @@ package com.app.fitness.fapp.db.entities;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.arch.persistence.room.ForeignKey;
 
-import com.app.fitness.fapp.util.Constants;
-
-@Entity(foreignKeys = @ForeignKey(entity = MuscleGroup.class, parentColumns = "id", childColumns = "muscleGroupId", onDelete = ForeignKey.CASCADE))
-public class Exercise {
+@Entity
+public class MuscleGroup {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -16,7 +13,9 @@ public class Exercise {
     @ColumnInfo(name = "name")
     private String name;
 
-    private int muscleGroupId;
+    public MuscleGroup(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
@@ -34,11 +33,16 @@ public class Exercise {
         this.name = name;
     }
 
-    public int getMuscleGroupId() {
-        return muscleGroupId;
-    }
-
-    public void setMuscleGroupId(int muscleGroupId) {
-        this.muscleGroupId = muscleGroupId;
+    public static MuscleGroup[] populateData() {
+        return new MuscleGroup[] {
+                new MuscleGroup("Shoulders"),
+                new MuscleGroup("Triceps"),
+                new MuscleGroup("Biceps"),
+                new MuscleGroup("Chest"),
+                new MuscleGroup("Back"),
+                new MuscleGroup("Legs"),
+                new MuscleGroup("Abs"),
+                new MuscleGroup("Cardio")
+        };
     }
 }
