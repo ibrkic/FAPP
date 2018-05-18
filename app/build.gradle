@@ -40,9 +40,11 @@ dependencies {
     //Lifecycle dependencies
     implementation 'android.arch.lifecycle:common-java8:1.1.1'
     //Adding RxJava2 objects as result for our queries
-    //implementation "android.arch.persistence.room:rxjava2:1.0.0"
+    implementation "android.arch.persistence.room:rxjava2:1.0.0"
     //Butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //RecyclerView
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    //Dagger
 }

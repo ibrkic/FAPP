@@ -9,6 +9,8 @@ import com.app.fitness.fapp.util.Constants;
 
 import java.util.List;
 
+import io.reactivex.Maybe;
+
 @Dao
 public interface ExerciseDAO {
 
@@ -17,4 +19,13 @@ public interface ExerciseDAO {
 
     @Insert
     void insert(Exercise exercise);
+
+    @Insert
+    void insertAll(Exercise... exercises);
+
+    @Query("SELECT * FROM Exercise WHERE name LIKE :name")
+    List<Exercise> getExerciseByName(String name);
+
+    @Query("SELECT * FROM Exercise WHERE muscleGroupId = :muscleGroupId")
+    Maybe<Exercise> getExerciseByMuscleGroup(int muscleGroupId);
 }

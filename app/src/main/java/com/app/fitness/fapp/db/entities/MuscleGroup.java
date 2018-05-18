@@ -4,8 +4,10 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.app.fitness.fapp.util.ListAdapterFriendlyType;
+
 @Entity
-public class MuscleGroup {
+public class MuscleGroup implements ListAdapterFriendlyType {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -25,6 +27,7 @@ public class MuscleGroup {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }

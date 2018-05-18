@@ -44,6 +44,7 @@ public abstract class DatabaseHolder extends RoomDatabase {
                             @Override
                             public void run() {
                                 getInstance(context).getMuscleGroupDao().insertAll(MuscleGroup.populateData());
+                                getInstance(context).getExerciseDao().insertAll(Exercise.populateData());
                             }
                         });
                     }
