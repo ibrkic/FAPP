@@ -50,7 +50,7 @@ public class SelectExerciseActivity extends FragmentActivity {
                 if(newText.length() > 0) {
                     new ExerciseAsyncTask(SelectExerciseActivity.this).execute(newText);
                 } else {
-
+                    new MuscleGroupAsyncTask(SelectExerciseActivity.this).execute();
                 }
                 return false;
             }
@@ -77,7 +77,7 @@ public class SelectExerciseActivity extends FragmentActivity {
             if(activity == null) {
                 return;
             }
-            mAdapter = new ListExercisesAdapter(muscleGroups);
+            mAdapter = new ListExercisesAdapter(muscleGroups, SelectExerciseActivity.this);
             exerciseRv.setAdapter(mAdapter);
         }
     }

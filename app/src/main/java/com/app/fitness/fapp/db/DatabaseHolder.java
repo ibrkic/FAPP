@@ -16,7 +16,7 @@ import com.app.fitness.fapp.util.Constants;
 
 import java.util.concurrent.Executors;
 
-@Database(entities = {MuscleGroup.class, Exercise.class, UserLogExercise.class}, version = 1)
+@Database(entities = {MuscleGroup.class, Exercise.class, UserLogExercise.class}, version = 2)
 public abstract class DatabaseHolder extends RoomDatabase {
 
     public abstract ExerciseDAO getExerciseDao();

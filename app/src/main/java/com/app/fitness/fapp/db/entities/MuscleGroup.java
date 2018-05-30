@@ -19,6 +19,7 @@ public class MuscleGroup implements ListAdapterFriendlyType {
         this.name = name;
     }
 
+    @Override
     public int getId() {
         return id;
     }

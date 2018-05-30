@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.ForeignKey;
+import android.util.Log;
 
 import com.app.fitness.fapp.util.Constants;
 import com.app.fitness.fapp.util.ListAdapterFriendlyType;
@@ -24,6 +25,7 @@ public class Exercise implements ListAdapterFriendlyType {
         this.muscleGroupId = muscleGroupId;
     }
 
+    @Override
     public int getId() {
         return id;
     }
@@ -50,6 +52,7 @@ public class Exercise implements ListAdapterFriendlyType {
     }
 
     public static Exercise[] populateData() {
+        Log.d("Exercise", "-------------------------------------------->populateData() invoked");
         return new Exercise[] {
                 //Shoulders
                 new Exercise("Arnold Dumbbell Press", 1),
